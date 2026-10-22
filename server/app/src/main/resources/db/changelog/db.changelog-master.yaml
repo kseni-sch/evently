@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/001_create_schema.sql
+  - include:
+      file: db/changelog/002_create_events.sql
+  - include:
+      file: db/changelog/003_create_processed_posts.sql
+  - include:
+      file: db/changelog/004_create_users.sql
+  - include:
+      file: db/changelog/005_create_favorites.sql
