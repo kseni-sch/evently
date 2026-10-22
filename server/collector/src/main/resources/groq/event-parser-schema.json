@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "endDate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "startTime": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "endTime": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minPrice": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "priceDescription": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "CONCERT",
+              "EXHIBITION",
+              "THEATER",
+              "MOVIE",
+              "EXCURSION",
+              "WORKSHOP",
+              "LECTURE",
+              "FESTIVAL_FAIR",
+              "SPORT",
+              "PROMOTION",
+              "OTHER"
+            ]
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "startDate",
+          "endDate",
+          "startTime",
+          "endTime",
+          "location",
+          "minPrice",
+          "priceDescription",
+          "category"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "events"
+  ],
+  "additionalProperties": false
+}

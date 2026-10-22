@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: evently
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/evently}
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8081/realms/evently/protocol/openid-connect/certs}
+          audiences: evently-api
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    default-schema: public
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+collector:
+  scheduling:
+    enabled: ${COLLECTION_ENABLED:true}
+    interval-ms: 900000
+    initial-delay-ms: 5000
+    post-limit: 100
+    batch-size: 100
+  telegram:
+    url: https://t.me/s/afishapeterburga
+    timeout-ms: 10000
+
+groq:
+  url: https://api.groq.com/openai/v1/chat/completions
+  api-key: ${GROQ_API_KEY:}
+  model: openai/gpt-oss-120b
+  timeout-ms: 30000
+  retry-delay-ms: 60000
+
+springdoc:
+  swagger-ui:
+    persistAuthorization: true
